@@ -2,7 +2,7 @@
 #include "serialport.h"
 
 /// \brief  : create a Handle to the serial port with a given port name.
-SerialPort::SerialPort(const char* portName)
+SerialPort::SerialPort( char const*  portName)
 {
     this->connected = false;
 
@@ -64,7 +64,7 @@ SerialPort::~SerialPort()
 }
 
 /// \brief  : Read a string from the open serial connection to the buffer.
-int SerialPort::readSerialPort(const char* buffer, unsigned int buf_size)
+int SerialPort::readSerialPort( char const* buffer, unsigned int buf_size)
 {
     DWORD bytesRead{};
     unsigned int toRead = 0;
@@ -94,7 +94,7 @@ int SerialPort::readSerialPort(const char* buffer, unsigned int buf_size)
 }
 
 /// \brief  : Write a string from the buffer to the open serial connection.
-bool SerialPort::writeSerialPort(const char* buffer, unsigned int buf_size)
+bool SerialPort::writeSerialPort( char const* buffer, unsigned int buf_size)
 {
     DWORD bytesSend;
 

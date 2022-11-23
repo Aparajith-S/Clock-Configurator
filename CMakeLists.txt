@@ -34,5 +34,11 @@ PRIVATE
 PUBLIC
 )
 
-add_executable(${PROJECT_NAME} clock_configurator.cpp)
+add_executable(${PROJECT_NAME} src/clock_configurator.cpp)
 target_link_libraries(${PROJECT_NAME} ClockConfig)
+
+add_custom_command(
+  TARGET ${PROJECT_NAME} POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy 
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/config.ini
+    $<TARGET_FILE_DIR:${PROJECT_NAME}>)
